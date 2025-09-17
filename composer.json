@@ -1,0 +1,19 @@
+{
+    "name": "superadminx/teaching",
+    "description": "教学系统",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "邹意",
+            "email": "741599086@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+	"autoload": {
+        "psr-4": {
+            "suepradminx\\teaching\\": "src/"
+        }
+    },
+    "require": {}
+}
