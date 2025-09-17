@@ -46,8 +46,8 @@ export default () => {
                             const result = await examinationPaperApi.create(values);
                             if (result.code === 1) {
                                 message.success(result.message)
-                                // onBack();
-                                // return true;
+                                onBack();
+                                return true;
                             } else {
                                 message.error(result.message)
                             }
