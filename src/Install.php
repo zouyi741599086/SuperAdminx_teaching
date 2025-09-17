@@ -104,6 +104,7 @@ class Install
         if (file_exists($sqlPath) && is_file($sqlPath)) {
             // 提炼出安装的表名
             $tables = self::getTableNamesFromSqlFile($sqlPath);
+			$tables = array_reverse($tables);
             foreach ($tables as $v) {
                 Db::query("DROP TABLE IF EXISTS {$v};");
             }
