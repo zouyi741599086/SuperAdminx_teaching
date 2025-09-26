@@ -210,7 +210,7 @@ class ExaminationResultLogic
     public static function exportData(array $params)
     {
         try {
-            $list    = self::getList($params, false)->select();
+            $list    = self::getList($params, false)->cursor();
             $tmpList = [];
             foreach ($list as $v) {
                 $tmpList[] = [
