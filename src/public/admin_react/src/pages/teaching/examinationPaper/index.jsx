@@ -288,15 +288,18 @@ export default () => {
                         for (let key in sort) {
                             orderBy = key + ' ' + (sort[key] === 'descend' ? 'desc' : 'asc');
                         }
-                        const res = await examinationPaperApi.getList({
+                        const result = await examinationPaperApi.getList({
                             ...params,// 包含了翻页参数跟搜索参数
                             orderBy, // 排序
                             page: params.current,
                         });
+                        if (result.code !== 1) {
+                            message.error(result.message);
+                        }
                         return {
-                            data: res.data.data,
+                            data: result.data.data,
                             success: true,
-                            total: res.data.total,
+                            total: result.data.total,
                         };
                     }}
                     // 开启批量选择

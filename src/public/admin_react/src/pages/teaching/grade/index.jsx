@@ -179,6 +179,9 @@ export default () => {
                     pagination={false}
                     request={async (params = {}, sort, filter) => {
                         const result = await gradeApi.getList();
+                        if (result.code !== 1) {
+                            message.error(result.message);
+                        }
                         return {
                             data: result.data,
                             success: true,

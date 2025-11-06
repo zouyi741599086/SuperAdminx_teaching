@@ -15,20 +15,25 @@ use plugin\teaching\app\common\model\GradeModel;
 class QuestionModel extends BaseModel
 {
 
-    // 表名
-    protected $name = 'question';
-
-    // 字段类型转换
-    protected $type = [
-        'imgs' => 'json',
-    ];
-
-    // 包含附件的字段，key是字段名称，value是如何取值里面的图片的路劲
-    public $file = [
-        'imgs'           => 'array',
-        'answer_content' => 'editor',
-    ];
-
+    /**
+     * 模型参数
+     * @return array
+     */
+    protected function getOptions() : array
+    {
+        return [
+            'name'               => 'question',
+            'autoWriteTimestamp' => true,
+            'type'               => [
+                'imgs' => 'json',
+            ],
+            'file'               => [ // 包含附件的字段，''代表直接等于附件路劲，'array'代表数组中包含附件路劲，'editor'代表富文本中包含附件路劲
+                'imgs'           => 'array',
+                'answer_content' => 'editor',
+            ],
+        ];
+    }
+    
     // 题的选择项
     public function QuestionOptions()
     {

@@ -178,6 +178,9 @@ export default () => {
                     pagination={false}
                     request={async (params = {}, sort, filter) => {
                         const result = await questionClassApi.getList();
+                        if (result.code !== 1) {
+                            message.error(result.message);
+                        }
                         let _pidList = deepClone(result.data).map(item => {
                             delete item?.children;
                             return item;

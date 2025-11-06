@@ -11,11 +11,19 @@ use app\common\model\BaseModel;
 
 class GradeModel extends BaseModel
 {
-    // 表名
-    protected $name = 'grade';
-
-    //包含附件的字段，key是字段名称，value是如何取值里面的图片的路劲
-    public $file = [
-    ];
+    /**
+     * 模型参数
+     * @return array
+     */
+    protected function getOptions() : array
+    {
+        return [
+            'name'               => 'grade',
+            'autoWriteTimestamp' => true,
+            'type'               => [],
+            'file'               => [ // 包含附件的字段，''代表直接等于附件路劲，'array'代表数组中包含附件路劲，'editor'代表富文本中包含附件路劲
+            ],
+        ];
+    }
 
 }

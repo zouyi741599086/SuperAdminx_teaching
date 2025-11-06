@@ -180,6 +180,9 @@ export default () => {
                     pagination={false}
                     request={async (params = {}, sort, filter) => {
                         const result = await examinationPaperClassApi.getList();
+                        if (result.code !== 1) {
+                            message.error(result.message);
+                        }
                         return {
                             data: result.data,
                             success: true,
